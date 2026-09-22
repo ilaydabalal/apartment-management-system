@@ -6,62 +6,6 @@ sifre: admin123
 
 PHP tabanlı, API-first mimaride geliştirilmiş site sakinlerinin aidat ödemelerini ve gelir-gider istek öneri şikayet durumlarını yönetebileceği web yazılım sistemi.
 
-##  Proje Yapısı
-
-```
-apartment-management/
-├── README.md
-├── config/
-│   ├── database.php          # Veritabanı bağlantı ayarları
-│   └── config.php            # Genel sistem ayarları
-├── api/                      # Backend API endpoint'leri
-│   ├── auth/
-│   │   ├── login.php         # Kullanıcı girişi
-│   │   ├── logout.php        # Çıkış işlemi
-│   │   └── check-auth.php    # Oturum kontrolü
-│   ├── users/
-│   │   ├── kullanicilar.php  # Kullanıcı CRUD işlemleri
-│   │   ├── permissions.php   # Yetki kontrolü
-│   │   └── roles.php         # Rol yönetimi
-│   ├── apartments/
-│   │   ├── apartmanlar.php   # Apartman CRUD
-│   │   └── daireler.php      # Daire yönetimi
-│   ├── dues/
-│   │   ├── aidatlar.php      # Aidat işlemleri
-│   │   ├── odemeler.php      # Ödeme kayıtları
-│   │   └── borclar.php       # Borç durumu
-│   ├── finance/
-│   │   ├── gelirler.php      # Gelir kayıtları
-│   │   ├── giderler.php      # Gider kayıtları
-│   │   └── raporlar.php      # Mali raporlar
-│   └── core/
-│       ├── database.php      # Veritabanı sınıfı
-│       ├── auth.php          # Kimlik doğrulama
-│       ├── yetki.php         # Yetki kontrolü
-│       └── response.php      # API yanıt formatı
-├── frontend/                 # Frontend dosyaları
-│   ├── index.html           # Ana sayfa / Giriş
-│   ├── dashboard.html       # Ana panel
-│   ├── users.html           # Kullanıcı yönetimi
-│   ├── apartments.html      # Apartman yönetimi
-│   ├── dues.html            # Aidat yönetimi
-│   ├── finance.html         # Gelir-gider
-│   ├── roles.html           # Yetki grupları
-│   ├── assets/
-│   │   ├── css/
-│   │   │   └── style.css    # Ana stil dosyası
-│   │   └── js/
-│   │       ├── app.js       # Ana JavaScript
-│   │       ├── api.js       # API iletişim fonksiyonları
-│   │       └── auth.js      # Kimlik doğrulama
-│   └── components/          # Yeniden kullanılabilir bileşenler
-├── database/
-│   └── schema.sql           # Veritabanı yapısı
-└── docs/
-    ├── api-endpoints.md     # API dökümantasyonu
-    └── permissions.json     # Yetki sistemi şeması
-```
-
 ##  Kurulum Adımları
 
 ### 1. Veritabanı Kurulumu
