@@ -29,9 +29,8 @@ When the system runs for the first time, a default admin user is automatically c
 Status-Based Deletion
 No records are physically deleted from the system. Instead:
 
-**status = 1:** Active record
-
-**status = 0: **Inactive (deleted) record
+- **status = 1:** Active record
+- **status = 0: ** Inactive (deleted) record
 ```sql
 
 UPDATE users SET status = 0 WHERE id = ?;
