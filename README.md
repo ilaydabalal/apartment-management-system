@@ -1,3 +1,66 @@
+username: admin
+password: admin123
+
+Apartment Management System
+A web-based software system developed in PHP using an API-first architecture, where residents can manage their dues payments and income-expense requests, suggestions, and complaint statuses.
+
+Installation Steps
+1. Database Setup
+mysql -u root -p < database/schema.sql
+
+2. Configuration
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'apartment_management');
+define('DB_USER', 'your_username');
+define('DB_PASS', 'your_password');
+
+3. Default User
+When the system runs for the first time, a default admin user is automatically created:
+
+Username: admin
+
+Password: admin123
+
+Role: Super Admin
+
+System Features
+Status-Based Deletion
+No records are physically deleted from the system. Instead:
+
+status = 1: Active record
+
+status = 0: Inactive (deleted) record
+
+UPDATE users SET status = 0 WHERE id = ?;
+
+SELECT * FROM users WHERE status = 1;
+
+Permission System
+The dynamic permission system operates on a module and action basis:
+
+{
+"role_id": 1,
+"role_name": "Site Manager",
+"permissions": {
+"users": ["view", "create", "edit"],
+"apartments": ["view", "create", "edit", "manage_units"],
+"dues": ["view", "create", "edit", "payment_create"],
+"finance": ["income_view", "expense_view", "reports_view"]
+}
+}
+
+Frontend Usage
+index.html - Login page
+
+dashboard.html - Main control panel
+
+Module pages are fully API-driven
+
+Dynamic content loading via JavaScript
+
+Responsive design
+
+
 
 kullanici_adi: admin
 sifre: admin123
