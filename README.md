@@ -6,37 +6,44 @@ A web-based software system developed in PHP using an API-first architecture, wh
 
 ## Installation Steps
 ### 1. Database Setup
+```sql
 mysql -u root -p < database/schema.sql
+```
 
 ### 2. Configuration
+```php
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'apartment_management');
 define('DB_USER', 'your_username');
 define('DB_PASS', 'your_password');
+```
 
 ### 3. Default User
 When the system runs for the first time, a default admin user is automatically created:
 
-Username: admin
+**Username:** admin
 
-Password: admin123
+**Password:** admin123
 
-Role: Super Admin
+**Role:**Super Admin
 
 ## System Features
 Status-Based Deletion
 No records are physically deleted from the system. Instead:
 
-status = 1: Active record
+**status = 1:** Active record
 
-status = 0: Inactive (deleted) record
+**status = 0: **Inactive (deleted) record
+```sql
 
 UPDATE users SET status = 0 WHERE id = ?;
 
 SELECT * FROM users WHERE status = 1;
+```
 
 ## Permission System
 The dynamic permission system operates on a module and action basis:
+```json
 
 {
 "role_id": 1,
@@ -48,17 +55,18 @@ The dynamic permission system operates on a module and action basis:
 "finance": ["income_view", "expense_view", "reports_view"]
 }
 }
+```
 
 ## Frontend Usage
-index.html - Login page
+1.**index.html** - Login page
 
-dashboard.html - Main control panel
+2.**dashboard.html** - Main control panel
 
-Module pages are fully API-driven
+3.Module pages are fully API-driven
 
-Dynamic content loading via JavaScript
+4.Dynamic content loading via JavaScript
 
-Responsive design
+5.Responsive design
 
 
 
