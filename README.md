@@ -1,20 +1,20 @@
 username: admin
 password: admin123
 
-Apartment Management System
+# Apartment Management System
 A web-based software system developed in PHP using an API-first architecture, where residents can manage their dues payments and income-expense requests, suggestions, and complaint statuses.
 
-Installation Steps
-1. Database Setup
+## Installation Steps
+### 1. Database Setup
 mysql -u root -p < database/schema.sql
 
-2. Configuration
+### 2. Configuration
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'apartment_management');
 define('DB_USER', 'your_username');
 define('DB_PASS', 'your_password');
 
-3. Default User
+### 3. Default User
 When the system runs for the first time, a default admin user is automatically created:
 
 Username: admin
@@ -23,7 +23,7 @@ Password: admin123
 
 Role: Super Admin
 
-System Features
+## System Features
 Status-Based Deletion
 No records are physically deleted from the system. Instead:
 
@@ -35,7 +35,7 @@ UPDATE users SET status = 0 WHERE id = ?;
 
 SELECT * FROM users WHERE status = 1;
 
-Permission System
+## Permission System
 The dynamic permission system operates on a module and action basis:
 
 {
@@ -49,7 +49,7 @@ The dynamic permission system operates on a module and action basis:
 }
 }
 
-Frontend Usage
+## Frontend Usage
 index.html - Login page
 
 dashboard.html - Main control panel
@@ -84,7 +84,7 @@ define('DB_USER', 'your_username');
 define('DB_PASS', 'your_password');
 ```
 
-### 4. İlk Kullanıcı
+### 3. İlk Kullanıcı
 Sistem ilk çalıştırıldığında varsayılan admin kullanıcısı oluşturulur:
 - **Kullanıcı:** admin
 - **Şifre:** admin123
