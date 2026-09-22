@@ -1,0 +1,83 @@
+[26-Aug-2025 04:05:31 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 04:05:31 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 04:06:07 Europe/Istanbul] 🔄 Method detected: PUT
+[26-Aug-2025 04:06:07 Europe/Istanbul] ✅ PUT method - calling handlePut
+[26-Aug-2025 04:06:07 Europe/Istanbul] 🔄 handlePut başladı
+[26-Aug-2025 04:06:07 Europe/Istanbul] 📥 PUT Raw data: {"id":555,"amount":500,"due_date":"2025-08-05","late_fee":0,"notes":"","paid_amount":200,"payment_method":"bank_transfer","payment_date":"2025-08-01","payment_receiver":"24","is_paid":0}
+[26-Aug-2025 04:06:07 Europe/Istanbul] 🔍 İşlenecek aidat ID: 555
+[26-Aug-2025 04:06:07 Europe/Istanbul] ❌ Aidatlar API Exception: There is no active transaction
+[26-Aug-2025 04:06:07 Europe/Istanbul] ❌ Stack trace: #0 C:\xampp\htdocs\apartment-management\api\dues\aidatlar.php(696): PDO->rollBack()
+#1 C:\xampp\htdocs\apartment-management\api\dues\aidatlar.php(67): handlePut(Object(Database), Object(PDO))
+#2 {main}
+[26-Aug-2025 04:07:40 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 04:07:40 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 04:08:01 Europe/Istanbul] 🔄 Method detected: PUT
+[26-Aug-2025 04:08:01 Europe/Istanbul] ✅ PUT method - calling handlePut
+[26-Aug-2025 04:08:01 Europe/Istanbul] 🔄 handlePut başladı
+[26-Aug-2025 04:08:01 Europe/Istanbul] 📥 PUT Raw data: {"id":555,"amount":500,"due_date":"2025-08-05","late_fee":0,"notes":"","paid_amount":250,"payment_method":"bank_transfer","payment_date":"2025-08-01","payment_receiver":"15","is_paid":0}
+[26-Aug-2025 04:08:01 Europe/Istanbul] 🔍 İşlenecek aidat ID: 555
+[26-Aug-2025 04:08:01 Europe/Istanbul] 📊 Transaction başladı
+[26-Aug-2025 04:08:01 Europe/Istanbul] ✅ Dues tablosu güncellendi
+[26-Aug-2025 04:08:01 Europe/Istanbul] 💰 Ödeme mevcut, payments işlemi yapılıyor: 250
+[26-Aug-2025 04:08:01 Europe/Istanbul] ➕ Yeni payment kaydı oluşturuluyor
+[26-Aug-2025 04:08:01 Europe/Istanbul] 📄 Yeni makbuz numarası: MKB-2025-048
+[26-Aug-2025 04:08:01 Europe/Istanbul] 📄 Makbuz numarası oluşturuldu: MKB-2025-048
+[26-Aug-2025 04:08:01 Europe/Istanbul] ✅ Yeni payment kaydı oluşturuldu - created_by: 15
+[26-Aug-2025 04:08:01 Europe/Istanbul] ✅ Transaction committed
+[26-Aug-2025 04:08:01 Europe/Istanbul] 📤 Başarılı sonuç - created_by_name: Cem Öztürk
+[26-Aug-2025 13:10:08 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 13:10:08 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 13:10:33 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 13:10:33 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 13:49:31 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 13:49:31 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 13:49:35 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 13:49:35 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 13:50:11 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 13:50:11 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 13:51:24 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 13:51:24 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 13:51:27 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 13:51:27 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 13:51:59 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 13:51:59 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 13:54:56 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 13:54:56 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 13:55:48 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 13:55:48 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 13:56:39 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 13:56:39 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:06:32 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:06:32 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:08:10 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:08:10 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:10:00 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:10:00 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:10:47 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:10:47 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:12:23 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:12:23 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:17:58 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:17:58 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:18:09 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:18:09 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:19:08 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:19:08 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:19:27 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:19:27 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:19:42 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:19:42 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:23:05 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:23:05 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:24:09 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:24:09 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:26:39 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:26:39 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:27:21 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:27:21 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:27:34 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:27:34 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:27:47 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:27:47 Europe/Istanbul] ✅ GET method - calling handleGet
+[26-Aug-2025 14:28:11 Europe/Istanbul] 🔄 Method detected: GET
+[26-Aug-2025 14:28:11 Europe/Istanbul] ✅ GET method - calling handleGet

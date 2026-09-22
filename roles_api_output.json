@@ -1,0 +1,24 @@
+﻿
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : {"success":true,"data":{"roles":[{"id":5,"name":"Apartman G\u00f6revlisi","description":"Blok i\u00e
+                    7i daire ve \u00f6demeleri takip eden k\u0131s\u0131tl\u0131 yetkili kullan\u0131c\u0131","permissio
+                    ...
+RawContent        : HTTP/1.1 200 OK
+                    Access-Control-Allow-Origin: *
+                    Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
+                    Access-Control-Allow-Headers: Content-Type, Authorization
+                    Content-Length: 2407
+                    Content...
+Forms             : {}
+Headers           : {[Access-Control-Allow-Origin, *], [Access-Control-Allow-Methods, GET, POST, PUT, DELETE, OPTIONS], 
+                    [Access-Control-Allow-Headers, Content-Type, Authorization], [Content-Length, 2407]...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : mshtml.HTMLDocumentClass
+RawContentLength  : 2407
+
+
+
