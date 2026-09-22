@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartman Yönetim Sistemi - Giriş</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #011500  0%, #260399 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #011500 , #260399);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-header h1 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            padding-left: 2.5rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #200d6c  0%, #020b86 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading {
+            display: none;
+        }
+
+        .alert {
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .alert-error {
+            background-color: #fee;
+            color: #c33;
+            border: 1px solid #fcc;
+        }
+
+        .alert-success {
+            background-color: #efe;
+            color: #363;
+            border: 1px solid #cfc;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .forgot-password {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .system-info {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+
+        .custom-demo-modal {
+  position: fixed;
+  z-index: 999;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: none;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-demo-modal-content {
+  background: white;
+  padding: 20px 25px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 300px;
+  max-width: 90%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.custom-demo-modal-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.custom-demo-modal-content button {
+  margin: 0 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#useDemoLogin {
+  background-color: #28a745;
+  color: white;
+}
+
+#cancelDemoLogin {
+  background-color: #6c757d;
+  color: white;
+}
+
+#useDemoLogin:hover {
+  background-color: #218838;
+}
+
+#cancelDemoLogin:hover {
+  background-color: #5a6268;
+}
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1><i class="fas fa-building"></i> Apartman Yönetim</h1>
+            <p>Aidat ve yönetim sistemi</p>
+        </div>
+
+        <div id="alert" class="alert"></div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Kullanıcı Adı / Email</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-user input-icon"></i>
+                    <input type="text" id="username" name="username" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Şifre</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" id="password" name="password" required>
+                </div>
+            </div>
+
+            <div class="remember-forgot">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Beni hatırla</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn" id="loginBtn">
+                <span class="btn-text">Giriş Yap</span>
+                <i class="fas fa-spinner fa-spin loading" id="loginLoading"></i>
+            </button>
+        </form>
+
+        <div class="system-info">
+            <p>Apartman Yönetim Sistemi v1.0</p>
+            <p>Güvenli giriş sistemi</p>
+        </div>
+
+<div id="demoLoginModal" class="custom-demo-modal" style="display:none;">
+    <div class="custom-demo-modal-content">
+      <p>Demo için varsayılan giriş bilgilerini kullanmak ister misiniz?<br><br><strong>Kullanıcı:</strong> admin<br><strong>Şifre:</strong> admin123</p>
+      <button id="useDemoLogin">Evet</button>
+      <button id="cancelDemoLogin">Hayır</button>
+    </div>
+  </div>
+
+  
+    </div>
+
+    <script src="assets/js/api.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const remember = document.getElementById('remember').checked;
+            
+            if (!username || !password) {
+                showAlert('Kullanıcı adı ve şifre gereklidir', 'error');
+                return;
+            }
+            
+            await login(username, password, remember);
+        });
+async function login(username, password, remember = false) {
+    const loginBtn = document.getElementById('loginBtn');
+    const loginLoading = document.getElementById('loginLoading');
+    const btnText = loginBtn.querySelector('.btn-text');
+    
+    loginBtn.disabled = true;
+    loginLoading.style.display = 'inline';
+    btnText.textContent = 'Giriş yapılıyor...';
+    
+    try {
+        console.log('Login deneniyor:', username); 
+        
+        const response = await api('/auth/login.php', 'POST', {
+            username: username,
+            password: password
+        });
+        
+        console.log('Login yanıtı:', response); 
+        
+        if (response.success) {
+            if (remember) {
+                localStorage.setItem('auth_token', response.data.token);
+                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('user_data', JSON.stringify(response.data.user));
+            } else {
+                sessionStorage.setItem('auth_token', response.data.token);
+                sessionStorage.setItem('token', response.data.token); 
+                sessionStorage.setItem('user_data', JSON.stringify(response.data.user));
+            }
+            
+            console.log('✅ Token kaydedildi:', response.data.token); 
+            
+            showAlert('Giriş başarılı! Yönlendiriliyorsunuz...', 'success');
+            
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 1000);
+        } else {
+            showAlert(response.message || 'Giriş başarısız', 'error');
+        }
+    } catch (error) {
+        console.error('Login error:', error);
+        showAlert('Giriş sırasında bir hata oluştu: ' + error.message, 'error');
+    } finally {
+        loginBtn.disabled = false;
+        loginLoading.style.display = 'none';
+        btnText.textContent = 'Giriş Yap';
+    }
+}
+
+        function showAlert(message, type = 'error') {
+            const alert = document.getElementById('alert');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+            alert.style.display = 'block';
+            
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 5000);
+        }
+
+        window.addEventListener('load', function() {
+            const token = localStorage.getItem('auth_token') || sessionStorage.getItem('auth_token');
+            if (token) {
+                window.location.href = 'dashboard.html';
+            }
+        });
+
+        window.addEventListener('load', function() {
+    setTimeout(() => {
+        document.getElementById('demoLoginModal').style.display = 'flex';
+    }, 1000);
+
+    document.getElementById('useDemoLogin').addEventListener('click', () => {
+        document.getElementById('username').value = 'admin';
+        document.getElementById('password').value = 'admin123';
+        document.getElementById('demoLoginModal').style.display = 'none';
+    });
+
+    document.getElementById('cancelDemoLogin').addEventListener('click', () => {
+        document.getElementById('demoLoginModal').style.display = 'none';
+    });
+});
+
+    </script>
+</body>
+</html>

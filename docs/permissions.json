@@ -1,0 +1,352 @@
+{
+  "system_modules": {
+    "users": {
+      "name": "Kullanıcı Yönetimi",
+      "description": "Sistem kullanıcılarının yönetimi",
+      "permissions": {
+        "view": {
+          "name": "Kullanıcıları görüntüleme",
+          "description": "Kullanıcı listesini ve detaylarını görüntüleyebilir"
+        },
+        "create": {
+          "name": "Kullanıcı ekleme",
+          "description": "Yeni kullanıcı hesabı oluşturabilir"
+        },
+        "edit": {
+          "name": "Kullanıcı düzenleme",
+          "description": "Mevcut kullanıcı bilgilerini güncelleyebilir"
+        },
+        "delete": {
+          "name": "Kullanıcı silme (pasifleştirme)",
+          "description": "Kullanıcı hesabını pasifleştirebilir"
+        }
+      }
+    },
+    "apartments": {
+      "name": "Apartman Yönetimi",
+      "description": "Apartman ve daire bilgilerinin yönetimi",
+      "permissions": {
+        "view": {
+          "name": "Apartman bilgilerini görüntüleme",
+          "description": "Apartman listesi ve detaylarını görüntüleyebilir"
+        },
+        "create": {
+          "name": "Apartman ekleme",
+          "description": "Yeni apartman kaydı oluşturabilir"
+        },
+        "edit": {
+          "name": "Apartman düzenleme",
+          "description": "Apartman bilgilerini güncelleyebilir"
+        },
+        "delete": {
+          "name": "Apartman silme (pasifleştirme)",
+          "description": "Apartman kaydını pasifleştirebilir"
+        }
+      }
+    },
+    "dues": {
+      "name": "Aidat ve Borç Yönetimi",
+      "description": "Aidat belirleme, ödeme kayıtları ve borç takibi",
+      "permissions": {
+        "view": {
+          "name": "Aidat bilgilerini görüntüleme",
+          "description": "Aidat listesi ve detaylarını görüntüleyebilir"
+        },
+        "create": {
+          "name": "Aidat belirleme",
+          "description": "Yeni aidat tanımları oluşturabilir"
+        },
+        "edit": {
+          "name": "Aidat düzenleme",
+          "description": "Mevcut aidat bilgilerini güncelleyebilir"
+        },
+        "delete": {
+          "name": "Aidat silme (pasifleştirme)",
+          "description": "Aidat kaydını pasifleştirebilir"
+        }
+      }
+    },
+    "finance": {
+      "name": "Gelir-Gider Takibi",
+      "description": "Mali işlemler, raporlar ve kategori yönetimi",
+      "permissions": {
+        "income_view": {
+          "name": "Gelir görüntüleme",
+          "description": "Gelir kayıtlarını görüntüleyebilir"
+        },
+        "income_create": {
+          "name": "Gelir ekleme",
+          "description": "Yeni gelir kaydı oluşturabilir"
+        },
+        "income_edit": {
+          "name": "Gelir düzenleme",
+          "description": "Gelir kayıtlarını düzenleyebilir"
+        },
+        "expense_view": {
+          "name": "Gider görüntüleme",
+          "description": "Gider kayıtlarını görüntüleyebilir"
+        },
+        "expense_create": {
+          "name": "Gider ekleme",
+          "description": "Yeni gider kaydı oluşturabilir"
+        },
+        "expense_edit": {
+          "name": "Gider düzenleme",
+          "description": "Gider kayıtlarını düzenleyebilir"
+        }
+      }
+    },
+    "roles": {
+      "name": "Yetki Grubu Yönetimi",
+      "description": "Rol tanımlama ve yetki atama işlemleri",
+      "permissions": {
+        "view": {
+          "name": "Rolleri görüntüleme",
+          "description": "Yetki gruplarını ve detaylarını görüntüleyebilir"
+        },
+        "create": {
+          "name": "Rol oluşturma",
+          "description": "Yeni yetki grubu oluşturabilir"
+        },
+        "edit": {
+          "name": "Rol düzenleme",
+          "description": "Mevcut rolleri düzenleyebilir"
+        },
+        "delete": {
+          "name": "Rol silme (pasifleştirme)",
+          "description": "Rol kaydını pasifleştirebilir"
+        }
+      }
+    }
+  },
+  "predefined_roles": {
+    "super_admin": {
+      "name": "Süper Admin",
+      "description": "Tüm sistem yetkilerine sahip",
+      "permissions": {
+        "users": ["view", "create", "edit", "delete"],
+        "apartments": ["view", "create", "edit", "delete"],
+        "dues": ["view", "create", "edit", "delete", "payment_create"],
+        "finance": ["income_view", "income_create", "income_edit", "expense_view", "expense_create", "expense_edit", "reports_view", "reports_export"],
+        "roles": ["view", "create", "edit", "delete"]
+      }
+    },
+    "accountant": {
+      "name": "Muhasebeci",
+      "description": "Mali işlemler yetkileri",
+      "permissions": {
+        "dues": ["view", "payment_create", "payment_edit", "debt_view"],
+        "finance": ["income_view", "income_create", "income_edit", "expense_view", "expense_create", "expense_edit", "reports_view", "reports_export"]
+      }
+    }
+
+  },
+  "permission_groups": {
+    "basic_view": {
+      "name": "Temel Görüntüleme",
+      "description": "Sadece listeleme ve görüntüleme yetkileri",
+      "includes": ["view", "debt_view", "reports_view", "income_view", "expense_view"]
+    },
+    "basic_management": {
+      "name": "Temel Yönetim",
+      "description": "Görüntüleme + ekleme yetkileri",
+      "includes": ["view", "create", "income_view", "income_create", "expense_view", "expense_create"]
+    },
+    "full_management": {
+      "name": "Tam Yönetim",
+      "description": "Tüm CRUD işlemleri",
+      "includes": ["view", "create", "edit", "delete"]
+    },
+    "financial_management": {
+      "name": "Mali Yönetim",
+      "description": "Tüm mali işlemler",
+      "includes": ["income_view", "income_create", "income_edit", "expense_view", "expense_create", "expense_edit", "reports_view", "reports_export"]
+    }
+  },
+  "ui_elements": {
+    "form_sections": {
+      "users": {
+        "title": "Kullanıcı Yönetimi",
+        "description": "Kullanıcı Yönetimi modülü ile ilgili yetkilerin yönetildiği alandır.",
+        "checkboxes": [
+          {
+            "permission": "view",
+            "label": "Kullanıcıları görüntüleyebilir",
+            "description": "Kullanıcı listesini ve detaylarını görüntüleyebilir"
+          },
+          {
+            "permission": "create",
+            "label": "Kullanıcı ekleyebilir",
+            "description": "Yeni kullanıcı hesapları oluşturabilir"
+          },
+          {
+            "permission": "edit",
+            "label": "Kullanıcıları düzenleyebilir",
+            "description": "Mevcut kullanıcı bilgilerini güncelleyebilir"
+          },
+          {
+            "permission": "delete",
+            "label": "Kullanıcıları silebilir",
+            "description": "Kullanıcı hesaplarını pasifleştirebilir"
+          }
+        ]
+      },
+      "apartments": {
+        "title": "Apartman Yönetimi",
+        "description": "Apartman ve daire yönetimi modülü ile ilgili yetkilerin bulunduğu alandır.",
+        "checkboxes": [
+          {
+            "permission": "view",
+            "label": "Apartman bilgilerini görüntüleyebilir",
+            "description": "Apartman listesi ve detaylarını görüntüleyebilir"
+          },
+          {
+            "permission": "create",
+            "label": "Apartman ekleyebilir",
+            "description": "Yeni apartman kayıtları oluşturabilir"
+          },
+          {
+            "permission": "edit",
+            "label": "Apartman düzenleyebilir",
+            "description": "Apartman bilgilerini güncelleyebilir"
+          },
+          {
+            "permission": "delete",
+            "label": "Apartman silebilir",
+            "description": "Apartman kayıtlarını pasifleştirebilir"
+          }
+        ]
+      },
+      "dues": {
+        "title": "Aidat ve Borç Yönetimi",
+        "description": "Aidat belirleme, ödeme kayıtları ve borç takibi modülünün yetkileri.",
+        "checkboxes": [
+          {
+            "permission": "view",
+            "label": "Aidat bilgilerini görüntüleyebilir",
+            "description": "Aidat listesi ve detaylarını görüntüleyebilir"
+          },
+          {
+            "permission": "create",
+            "label": "Aidat belirleyebilir",
+            "description": "Yeni aidat tanımları oluşturabilir"
+          },
+          {
+            "permission": "edit",
+            "label": "Aidat düzenleyebilir",
+            "description": "Mevcut aidat bilgilerini güncelleyebilir"
+          },
+          {
+            "permission": "delete",
+            "label": "Aidat silebilir",
+            "description": "Aidat kayıtlarını pasifleştirebilir"
+          }
+        ]
+      },
+      "finance": {
+        "title": "Gelir-Gider Takibi",
+        "description": "Mali işlemler, raporlar ve kategori yönetimi modülünün yetkileri.",
+        "checkboxes": [
+          {
+            "permission": "income_view",
+            "label": "Gelir görüntüleyebilir",
+            "description": "Gelir kayıtlarını görüntüleyebilir"
+          },
+          {
+            "permission": "income_create",
+            "label": "Gelir ekleyebilir",
+            "description": "Yeni gelir kayıtları oluşturabilir"
+          },
+          {
+            "permission": "income_edit",
+            "label": "Gelir düzenleyebilir",
+            "description": "Gelir kayıtlarını güncelleyebilir"
+          },
+          {
+            "permission": "expense_view",
+            "label": "Gider görüntüleyebilir",
+            "description": "Gider kayıtlarını görüntüleyebilir"
+          },
+          {
+            "permission": "expense_create",
+            "label": "Gider ekleyebilir",
+            "description": "Yeni gider kayıtları oluşturabilir"
+          },
+          {
+            "permission": "expense_edit",
+            "label": "Gider düzenleyebilir",
+            "description": "Gider kayıtlarını güncelleyebilir"
+          },
+          {
+            "permission": "reports_view",
+            "label": "Raporları görüntüleyebilir",
+            "description": "Mali raporları görüntüleyebilir"
+          },
+          {
+            "permission": "reports_export",
+            "label": "Rapor dışa aktarabilir",
+            "description": "Raporları Excel/PDF formatında indirebilir"
+          }
+        ]
+      },
+      "roles": {
+        "title": "Yetki Grubu Yönetimi",
+        "description": "Rol tanımlama ve yetki atama işlemleri modülünün yetkileri.",
+        "checkboxes": [
+          {
+            "permission": "view",
+            "label": "Rolleri görüntüleyebilir",
+            "description": "Yetki gruplarını ve detaylarını görüntüleyebilir"
+          },
+          {
+            "permission": "create",
+            "label": "Rol oluşturabilir",
+            "description": "Yeni yetki grupları oluşturabilir"
+          },
+          {
+            "permission": "edit",
+            "label": "Rol düzenleyebilir",
+            "description": "Mevcut rolleri düzenleyebilir"
+          },
+          {
+            "permission": "delete",
+            "label": "Rol silebilir",
+            "description": "Rol kayıtlarını pasifleştirebilir"
+          }
+        ]
+      }
+    }
+  },
+  "usage_examples": {
+    "check_permission": {
+      "description": "Yetki kontrolü yapma",
+      "php": "if ($yetki->check('users', 'create')) { /* İşlem yapılabilir */ }",
+      "javascript": "if (hasPermission('users', 'create')) { /* Butonu göster */ }"
+    },
+    "require_permission": {
+      "description": "Yetki zorunluluğu",
+      "php": "$yetki->require('dues', 'payment_create');",
+      "javascript": "requirePermission('dues', 'payment_create');"
+    },
+    "multiple_permissions": {
+      "description": "Çoklu yetki kontrolü",
+      "php": "$yetki->checkAny(['dues.view', 'finance.income_view'])",
+      "javascript": "hasPermission('dues', 'view') || hasPermission('finance', 'income_view')"
+    }
+  },
+  "validation_rules": {
+    "role_creation": {
+      "required_fields": ["name", "permissions"],
+      "name_min_length": 3,
+      "name_max_length": 100,
+      "permissions_format": "object",
+      "valid_modules": ["users", "apartments", "dues", "finance", "roles"]
+    },
+    "permission_assignment": {
+      "must_exist_in_system": true,
+      "module_permission_validation": true,
+      "prevent_self_role_removal": true,
+      "admin_role_protection": true
+    }
+  }
+}
