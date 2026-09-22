@@ -21,9 +21,9 @@ define('DB_PASS', 'your_password');
 ### 3. Default User
 When the system runs for the first time, a default admin user is automatically created:
 
--**Username:** admin
--**Password:** admin123
--**Role:**Super Admin
+- **Username:** admin
+- **Password:** admin123
+- **Role:** Super Admin
 
 ## System Features
 Status-Based Deletion
