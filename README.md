@@ -21,11 +21,9 @@ define('DB_PASS', 'your_password');
 ### 3. Default User
 When the system runs for the first time, a default admin user is automatically created:
 
-**Username:** admin
-
-**Password:** admin123
-
-**Role:**Super Admin
+-**Username:** admin
+-**Password:** admin123
+-**Role:**Super Admin
 
 ## System Features
 Status-Based Deletion
@@ -59,13 +57,9 @@ The dynamic permission system operates on a module and action basis:
 
 ## Frontend Usage
 1.**index.html** - Login page
-
 2.**dashboard.html** - Main control panel
-
 3.Module pages are fully API-driven
-
 4.Dynamic content loading via JavaScript
-
 5.Responsive design
 
 
